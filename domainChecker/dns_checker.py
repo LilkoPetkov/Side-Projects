@@ -6,8 +6,8 @@ from functools import lru_cache
 print("Initiaiting script... (#FuckDNSWatch)")
 
 
-@lru_cache
-@exec_time
+@lru_cache  # Used to not allow the same search to be made in the same session of the script. To avoid overloading the logs file.
+@exec_time  # Keeps logs of how fast each of the functions was executed. 
 def dns_check_NS(dom):
     print()
     print("NS records: ")
